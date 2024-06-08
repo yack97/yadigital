@@ -1,5 +1,5 @@
 <template>
-  <header >
+  <header>
     <nav class="h-20 w-full bg-slate-200 shadow-md flex items-center justify-between px-6 lg:px-20">
       <div class="flex items-end flex-row">
         <a href="#" class="">
@@ -12,21 +12,19 @@
       </div>
       <ul :class="{ 'active': menuOpen.isVisible, 'flex': menuOpen.isVisible, 'hidden lg:flex items-center space-x-8': !menuOpen.isVisible }">
         <li class="text-center">
-          <RouterLink to="/" class="text-gray-700 hover:text-gray-900">Home</RouterLink>
+          <RouterLink to="/" class="text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-indigo-600" @click="handleMenuItemClick">Home</RouterLink>
         </li>
         <li class="text-center">
-          <RouterLink to="/blog" class="text-gray-700 hover:text-gray-900">Blog</RouterLink>
+          <RouterLink to="/blog" class="text-gray-700 hover:text-gray-900 border-b-2 border-transparent hover:border-indigo-600" @click="handleMenuItemClick">Blog</RouterLink>
         </li>
         <li class="text-center">
-          <button class=" bg-indigo-600 text-stone-200 w-max py-4 px-12 rounded-full " @click="handleContactButtonClick">Contactanos</button>
+          <button class="text-indigo-600 border border-indigo-600 py-2 px-4 rounded hover:bg-indigo-600 hover:text-white transition" @click="handleContactButtonClick">Contactanos</button>
         </li>
         <li class="text-center mt-8 lg:hidden">
           <button @click="toggleMenu" class="text-gray-700 hover:text-gray-900">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              </path>
-              <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              </path>
+              <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
           </button>
         </li>
@@ -47,8 +45,13 @@ const toggleMenu = () => {
   menuOpen.value.isVisible = !menuOpen.value.isVisible
 }
 
+const handleMenuItemClick = () => {
+  if (window.innerWidth <= 767) {
+    menuOpen.value.isVisible = false
+  }
+}
+
 const handleContactButtonClick = () => {
-  // Aquí puedes agregar la lógica para manejar el clic en el botón "Contactanos"
   console.log('Botón "Contactanos" clickeado')
 }
 </script>
@@ -61,6 +64,7 @@ header {
   width: 100%;
   z-index: 1000;
 }
+
 /* Estilos para los enlaces del menú */
 ul li a {
   font-size: 1rem;
@@ -101,7 +105,6 @@ ul li a {
     top: 20px;
     left: center;
   }
-
 
   ul li:last-of-type button svg {
     width: 24px;

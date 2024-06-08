@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 py-12 sm:py-16 px-6 sm:px-8 shadow-xl rounded-lg">
+  <div class="bg-white py-24 sm:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:text-center">
         <h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
